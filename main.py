@@ -7,14 +7,13 @@ if os.getenv('API_ENV') != 'production':
 
 import uvicorn
 
-from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
+from fastapi import FastAPI
 
-#from routers import webhooks
+from route.linebot import router
 
 app = FastAPI()
 
-# app.include_router(webhooks.router)
+app.include_router(router)
 
 
 @app.get("/")
